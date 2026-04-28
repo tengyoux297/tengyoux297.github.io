@@ -172,7 +172,11 @@ kramdown:
 # Includes & excludes
 include: ["_pages", "_scripts"]
 exclude:
+  - AGENTS.md
+  - ANALYTICS.md
   - bin/
+  - CLAUDE.md
+  - codex_note/
   - CONTRIBUTING.md
   - CUSTOMIZE.md
   - Dockerfile
@@ -190,6 +194,8 @@ exclude:
   - purgecss.config.js
   - README.md
   - readme_preview/
+  - SEO.md
+  - TROUBLESHOOTING.md
   - vendor
 keep_files:
   - CNAME
