@@ -4,19 +4,98 @@
 
 @use "variables" as v;
 
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.72;
+  letter-spacing: -0.01em;
+}
+
+button,
+input,
+select,
+textarea,
+.navbar,
+.page-action,
+.hero-button,
+.links a.btn,
+.news th,
+.post-meta,
+.post-tags,
+.contact-note,
+.utility-hint,
+.post-description,
+.bibsearch-form-input {
+  font-family: "Manrope", sans-serif;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: "IBM Plex Mono", monospace;
+}
+
 p,
+li,
+em,
+div,
+span,
+strong {
+  color: var(--global-text-color);
+}
+
+p,
+li {
+  margin-bottom: 1rem;
+}
+
+ul,
+ol {
+  padding-left: 1.25rem;
+}
+
+strong {
+  font-weight: 700;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-em,
-div,
-li,
-span,
-strong {
+h6 {
   color: var(--global-text-color);
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.12;
+  margin-bottom: 0.75rem;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 4vw, 3rem);
+}
+
+h2 {
+  font-size: 1.55rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+h4 {
+  font-size: 1.05rem;
+}
+
+h5,
+h6 {
+  font-size: 0.95rem;
 }
 
 hr {
@@ -26,48 +105,58 @@ hr {
 table {
   td,
   th {
-    font-size: 1rem;
-    padding: 1px 1rem 1px 0;
+    font-size: 0.98rem;
+    padding: 0.2rem 1rem 0.2rem 0;
   }
 
   th {
-    font-weight: bold;
+    font-weight: 700;
   }
+}
+
+.post-description {
+  max-width: 42rem;
+  color: var(--global-text-color-light);
+  font-size: 0.98rem;
+  line-height: 1.65;
 }
 
 a,
 table.table a {
   color: var(--global-theme-color);
+  text-decoration: none;
+  box-shadow: inset 0 -1px 0 var(--global-theme-tint);
+  transition:
+    color 0.2s ease,
+    box-shadow 0.2s ease;
 
   &:hover {
-    color: var(--global-theme-color);
-    text-decoration: underline;
-  }
-
-  &:hover:after :not(.nav-item.dropdown) {
-    width: 100%;
+    color: var(--global-hover-color);
+    box-shadow: inset 0 -1px 0 var(--global-theme-tint-strong);
+    text-decoration: none;
   }
 }
 
 .table-dark {
   background-color: transparent;
+
   &.table-bordered {
     border: 1px solid var(--global-divider-color) !important;
   }
 }
 
 blockquote {
-  background: var(--global-bg-color);
-  border-left: 5px solid var(--global-theme-color);
-  margin: 1.5em 0;
-  padding: 1em;
-  font-size: 1.2rem;
+  background: var(--global-card-bg-color);
+  border-left: 4px solid var(--global-theme-color);
+  border-radius: 0 1rem 1rem 0;
+  margin: 2rem 0;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
 
   p {
     margin-bottom: 0;
   }
 
-  /* Tips, warnings, and dangers blockquotes */
   &.block-tip {
     border-color: var(--global-tip-block);
     background-color: var(--global-tip-block-bg);

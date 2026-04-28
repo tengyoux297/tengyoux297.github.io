@@ -2,28 +2,17 @@
   <!-- Nav Bar -->
   <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
     <div class="container">
-      {% if page.permalink != '/' %}
-        <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
-          {% if site.title == 'blank' %}
-            {% if site.first_name %}
-              <span class="font-weight-bold">
-                {{- site.first_name -}}
-              </span>
-            {% endif %}
-            {% if site.middle_name %}
-              {{- site.middle_name -}}
-            {% endif %}
-            {% if site.last_name %}
-              {{- site.last_name -}}
-            {% endif %}
-          {% else %}
-            {{- site.title -}}
-          {% endif %}
-        </a>
-      {% elsif site.enable_navbar_social %}
-        <!-- Social Icons -->
-        <div class="navbar-brand social">{% social_links %}</div>
-      {% endif %}
+      <a class="navbar-brand title" href="{{ '/' | relative_url }}">
+        {% if site.first_name %}
+          <span class="brand-first">{{- site.first_name -}}</span>
+        {% endif %}
+        {% if site.middle_name %}
+          {{- site.middle_name -}}
+        {% endif %}
+        {% if site.last_name %}
+          {{- site.last_name -}}
+        {% endif %}
+      </a>
       <!-- Navbar Toggle -->
       <button
         class="navbar-toggler collapsed ml-auto"
@@ -57,6 +46,8 @@
           </li>
 
           <!-- Other pages -->
+          {% assign cv_link = site.cv_pdf_link | default: '/assets/pdf/cv.pdf' %}
+          {% assign cv_inserted = false %}
           {% assign sorted_pages = site.pages | sort: 'nav_order' %}
           {% for p in sorted_pages %}
             {% if p.nav and p.autogen == null %}
@@ -115,23 +106,43 @@
                   </a>
                 </li>
               {% endif %}
+              {% if p.permalink == '/publications/' %}
+                <li class="nav-item">
+                  <a class="nav-link nav-link-cta" href="{{ cv_link | relative_url }}" target="_blank" rel="noopener noreferrer">CV</a>
+                </li>
+                {% assign cv_inserted = true %}
+              {% endif %}
             {% endif %}
           {% endfor %}
+          {% unless cv_inserted %}
+            <li class="nav-item">
+              <a class="nav-link nav-link-cta" href="{{ cv_link | relative_url }}" target="_blank" rel="noopener noreferrer">CV</a>
+            </li>
+          {% endunless %}
           {% if site.search_enabled %}
             <!-- Search -->
-            <li class="nav-item">
-              <button id="search-toggle" title="Search" onclick="openSearchModal()">
-                <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span>
+            <li class="nav-item nav-item-utility">
+              <button
+                id="search-toggle"
+                class="nav-utility-button"
+                type="button"
+                title="Open search (Ctrl/Cmd + K)"
+                onclick="openSearchModal()"
+                aria-label="Open search"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span class="utility-hint">Ctrl K</span>
               </button>
             </li>
           {% endif %}
           {% if site.enable_darkmode %}
             <!-- Toogle theme mode -->
-            <li class="toggle-container">
-              <button id="light-toggle" title="Change theme">
+            <li class="nav-item nav-item-utility">
+              <button id="light-toggle" class="nav-utility-button" title="Change theme" aria-label="Change theme">
                 <i class="fa-half-sun-moon" id="light-toggle-system"></i>
                 <i class="fa-solid fa-moon" id="light-toggle-dark"></i>
                 <i class="fa-solid fa-sun" id="light-toggle-light"></i>
+                <span class="utility-hint">Theme</span>
               </button>
             </li>
           {% endif %}

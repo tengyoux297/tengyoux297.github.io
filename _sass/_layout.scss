@@ -5,9 +5,12 @@
 @use "variables" as v;
 
 body {
-  padding-bottom: 70px;
+  padding-bottom: 0;
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   h1,
   h2,
@@ -15,44 +18,287 @@ body {
   h4,
   h5,
   h6 {
-    scroll-margin-top: 66px;
+    scroll-margin-top: 96px;
   }
 }
 
 body.fixed-top-nav {
-  // Add some padding for the nav-bar.
-  padding-top: 57px;
+  padding-top: 86px;
 }
 
 body.sticky-bottom-footer {
-  // Remove padding below footer.
   padding-bottom: 0;
 }
 
 .container {
   max-width: v.$max-content-width;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
-// Profile
-.profile {
-  img {
-    width: 100%;
+.site-shell {
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+
+.post {
+  min-width: 0;
+}
+
+.page-shell,
+.research-home {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-header {
+  margin-bottom: 2.5rem;
+}
+
+.page-header {
+  max-width: 44rem;
+}
+
+.page-header-with-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  max-width: 100%;
+}
+
+.page-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.15rem;
+  border-radius: 999px;
+  border: 1px solid var(--global-divider-color);
+  background: var(--global-card-bg-color);
+  box-shadow: 0 18px 35px -28px var(--global-shadow-color);
+  color: var(--global-text-color) !important;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover {
+    color: var(--global-theme-color) !important;
+    border-color: var(--global-theme-tint-strong);
+    text-decoration: none;
   }
 }
 
-// Content layout uses Bootstrap's grid system with responsive columns
-// Main content flows naturally through container-mt-5 and Bootstrap grid classes
-// See _layouts/default.liquid and _includes/projects.liquid for examples
+.page-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 
-/******************************************************************************
- * Publications
- ******************************************************************************/
+.research-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.85fr);
+  gap: 3rem;
+  align-items: center;
+  padding: 0.5rem 0 2.25rem;
+}
 
-// Publications layout is defined in _includes/bib_search.liquid
-// Uses jekyll-scholar for BibTeX parsing and Bootstrap cards for display
+.research-home .post-title {
+  font-size: clamp(2.8rem, 5.5vw, 4.3rem);
+  line-height: 0.98;
+  margin-bottom: 0;
+  letter-spacing: -0.05em;
+}
 
-/*****************************************************************************
-* Projects
-*****************************************************************************/
+.hero-kicker,
+.section-kicker {
+  margin-bottom: 1rem;
+  color: var(--global-theme-color);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
 
-// TODO: redefine projects layout.
+.hero-lede {
+  max-width: 41rem;
+  margin-top: 1.5rem;
+}
+
+.hero-lede p:last-child {
+  margin-bottom: 0;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.82rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--global-divider-color);
+  background: var(--global-card-bg-color);
+  box-shadow: 0 18px 35px -28px var(--global-shadow-color);
+  color: var(--global-text-color) !important;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--global-theme-color) !important;
+    border-color: var(--global-theme-tint-strong);
+    text-decoration: none;
+  }
+}
+
+.hero-button-icon {
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  font-size: 1.15rem;
+}
+
+.research-hero-media {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.hero-portrait {
+  width: 100%;
+  max-width: 320px;
+  padding: 0.9rem;
+  border-radius: 1.6rem;
+  border: 1px solid var(--global-divider-color);
+  background: var(--global-card-bg-color);
+  box-shadow: 0 22px 48px -38px var(--global-shadow-color);
+
+  img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+}
+
+.hero-aside {
+  width: 100%;
+  max-width: 320px;
+  padding: 0.95rem 1.05rem;
+  border-radius: 1.25rem;
+  border: 1px solid var(--global-divider-color);
+  background: var(--global-surface-color);
+  color: var(--global-text-color-light);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.55;
+
+  div {
+    white-space: nowrap;
+  }
+
+  div + div {
+    margin-top: 0.3rem;
+  }
+}
+
+.home-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.section-card {
+  border: 1px solid var(--global-divider-color);
+  border-radius: 1.55rem;
+  background: var(--global-card-bg-color);
+  box-shadow: 0 18px 40px -34px var(--global-shadow-color);
+  padding: 1.5rem;
+}
+
+.section-card-feature {
+  padding: 1.75rem;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+.section-link {
+  color: var(--global-text-color-light);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover {
+    color: var(--global-theme-color);
+    text-decoration: none;
+  }
+}
+
+.news .table-responsive {
+  overflow: visible;
+}
+
+@media (max-width: 991.98px) {
+  .research-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .research-hero-media {
+    align-items: flex-start;
+  }
+
+  .page-header-with-action {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 767.98px) {
+  body.fixed-top-nav {
+    padding-top: 78px;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .site-shell {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+  }
+
+  .research-home .post-title {
+    font-size: clamp(2.3rem, 11vw, 3.15rem);
+  }
+
+  .section-card,
+  .section-card-feature {
+    padding: 1.2rem;
+  }
+}

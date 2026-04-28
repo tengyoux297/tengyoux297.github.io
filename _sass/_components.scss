@@ -2,14 +2,11 @@
  * Reusable component styles: Cards, captions, profiles, etc.
  ******************************************************************************/
 
-// Checklist
-
 ul.task-list {
-  list-style-type: none; /* Remove bullets from all levels */
+  list-style-type: none;
 }
 
 ul.task-list > li ul {
-  /* Nested lists within .task-list */
   padding-inline-start: 1.5rem;
 }
 
@@ -18,50 +15,47 @@ ul.task-list input[type="checkbox"] {
   vertical-align: middle;
 }
 
-// Math
-
 .equation {
   margin-bottom: 1rem;
   text-align: center;
 }
 
-// Caption
-
 .caption {
-  font-size: 0.875rem;
   margin-top: 0.75rem;
   margin-bottom: 1.5rem;
+  color: var(--global-text-color-light);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.88rem;
   text-align: center;
 }
 
-// Card
-
 .card {
   background-color: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 1.5rem;
+  box-shadow: 0 30px 60px -42px var(--global-shadow-color);
 
   .card-img {
     width: 100%;
-    padding-top: 1.25rem;
+    padding-top: 1rem;
   }
 
   .card-title {
     color: var(--global-text-color);
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
   }
 
   .card-body {
-    padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+    padding: 1.25rem;
   }
 }
-
-// Profile
 
 .profile {
   width: 100%;
 
   .more-info {
-    margin-bottom: 5px;
-    margin-top: 5px;
-    font-family: monospace;
+    font-family: "Manrope", sans-serif;
 
     p {
       display: inline-block;
@@ -70,30 +64,8 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-.profile.float-right {
-  margin-left: 1rem;
-}
-
-.profile.float-left {
-  margin-right: 1rem;
-}
-
-@media (min-width: 576px) {
-  .profile {
-    width: 30%;
-
-    .address {
-      p {
-        display: block;
-      }
-    }
-  }
-}
-
-// CV
-
 .cv {
-  margin-bottom: 40px;
+  margin-bottom: 2rem;
 
   .card {
     background-color: var(--global-card-bg-color);
@@ -104,7 +76,7 @@ ul.task-list input[type="checkbox"] {
       border-color: var(--global-divider-color);
 
       .badge {
-        color: var(--global-card-bg-color) !important;
+        color: var(--global-hover-text-color) !important;
         background-color: var(--global-theme-color) !important;
       }
     }
@@ -116,13 +88,6 @@ ul.task-list input[type="checkbox"] {
   border: none;
   color: var(--global-text-color);
 }
-
-.date-column {
-  width: 75px;
-  transform: translateX(-15px) translateY(-5px);
-}
-
-// Projects
 
 .projects {
   a {
@@ -152,16 +117,14 @@ ul.task-list input[type="checkbox"] {
   }
 
   h2.category {
-    color: var(--global-divider-color);
+    color: var(--global-text-color-light);
     border-bottom: 1px solid var(--global-divider-color);
-    padding-top: 0.5rem;
-    margin-top: 2rem;
+    padding-bottom: 0.6rem;
+    margin-top: 1.5rem;
     margin-bottom: 1rem;
-    text-align: right;
+    text-align: left;
   }
 }
-
-// Repositories
 
 @media (min-width: 768px) {
   .repo {
@@ -169,35 +132,47 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// Social (bottom)
-
 .social {
-  text-align: center;
+  text-align: left;
 
   .contact-icons {
-    font-size: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    align-items: center;
+    font-size: 1.5rem;
 
     a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.8rem;
+      height: 2.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--global-divider-color);
+      background: var(--global-surface-color);
+      box-shadow: 0 14px 30px -24px var(--global-shadow-color);
+
       img {
-        width: 3.2rem;
-        height: 3.2rem;
-        margin-bottom: 1rem;
+        width: 1.4rem;
+        height: 1.4rem;
+        margin-bottom: 0;
       }
 
       svg {
-        width: 3.5rem;
-        height: 4rem;
-        margin-bottom: 0.5rem;
+        width: 1.45rem;
+        height: 1.45rem;
+        margin-bottom: 0;
 
         image {
-          width: 3.5rem;
-          height: 3.5rem;
+          width: 1.45rem;
+          height: 1.45rem;
         }
       }
 
       i::before {
         color: var(--global-text-color);
-        transition-property: all 0.2s ease-in-out;
+        transition: color 0.2s ease-in-out;
       }
 
       &:hover {
@@ -211,8 +186,53 @@ ul.task-list input[type="checkbox"] {
   }
 
   .contact-note {
-    font-size: 0.8rem;
+    margin-top: 1rem;
+    color: var(--global-text-color-light);
+    font-size: 0.95rem;
+    line-height: 1.65;
   }
+}
+
+.news {
+  table {
+    margin-bottom: 0;
+  }
+
+  tr:first-child {
+    th,
+    td {
+      border-top: none;
+      padding-top: 0;
+    }
+  }
+
+  th,
+  td {
+    border-top: 1px solid var(--global-divider-color);
+    padding: 0.85rem 0;
+    vertical-align: top;
+  }
+
+  th {
+    width: 7rem !important;
+    color: var(--global-text-color-light);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  td {
+    color: var(--global-text-color);
+    font-size: 1rem;
+  }
+}
+
+.news-title {
+  color: var(--global-text-color) !important;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.98rem;
+  font-weight: 700;
 }
 
 .wechat-modal {
@@ -225,7 +245,6 @@ ul.task-list input[type="checkbox"] {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.8);
 }
 
@@ -245,16 +264,12 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// Distill
-
 .distill {
   a:hover {
     border-bottom-color: var(--global-theme-color);
     text-decoration: none;
   }
 }
-
-// diff2html
 
 .d2h-diff-table {
   position: relative;

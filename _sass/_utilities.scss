@@ -289,19 +289,20 @@ nav[data-toggle="toc"] {
 .bibsearch-form-input {
   color: var(--global-newsletter-text-color);
   background: var(--global-newsletter-bg-color);
-  border: 1px solid var(--global-newsletter-text-color);
+  border: 1px solid var(--global-divider-color);
   outline: none;
-  margin: 0px 10px 0px 0px;
+  margin: 0 0 1rem;
   width: 100%;
-  max-width: 350px;
+  max-width: 420px;
   min-width: 100px;
   box-sizing: border-box;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
-  border-radius: 6px;
-  padding: 8px 12px;
+  box-shadow: 0 18px 35px -28px var(--global-shadow-color);
+  border-radius: 999px;
+  padding: 0.85rem 1rem;
 }
 
-.newsletter-form-input:focus {
+.newsletter-form-input:focus,
+.bibsearch-form-input:focus {
   border-color: var(--global-theme-color) !important;
 }
 
