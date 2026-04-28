@@ -25,7 +25,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am currently completing my **M.S. in Electrical and Computer Engineering at UCLA**, where I work with Prof. Xiang "Anthony" Chen at **UCLA HCI Research**. Before UCLA, I received my **B.S. in Computer Engineering from UC Irvine**.
+Hi there. My name is Tengyou Xu (许 腾右). I have recently completed my **M.S. in Electrical and Computer Engineering at UCLA**, where I worked with Prof. Xiang "Anthony" Chen at **UCLA HCI Research**. Before UCLA, I received my **B.S. in Computer Engineering from UC Irvine**. 
 
 My research lies at the intersection of **multisensory AI** and **medical image computing**. I am specifically interested in addressing the **generalization bottleneck** of AI in clinical practice caused by **inefficient sampling**, **domain shift**, and **data scarcity**.
 
