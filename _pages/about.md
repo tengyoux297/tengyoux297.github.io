@@ -2,7 +2,6 @@
 layout: about
 title: About
 permalink: /
-subtitle: Incoming PhD Student in Computer Science at Boston College
 
 profile:
   image: photo.jpg

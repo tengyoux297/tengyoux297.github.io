@@ -183,6 +183,51 @@ ul.task-list input[type="checkbox"] {
         }
       }
     }
+
+    .school-email-mark {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.55rem;
+      height: 1.55rem;
+    }
+
+    .school-email-base {
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .school-email-badge {
+      position: absolute;
+      right: -0.18rem;
+      bottom: -0.22rem;
+      width: 0.92rem;
+      height: 0.92rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .school-email-badge-bg {
+      position: absolute;
+      font-size: 0.98rem;
+      line-height: 1;
+
+      &::before {
+        color: var(--global-card-bg-color);
+      }
+    }
+
+    .school-email-badge-icon {
+      position: relative;
+      font-size: 0.54rem;
+      line-height: 1;
+    }
+
+    a:hover .school-email-badge-bg::before {
+      color: var(--global-card-bg-color);
+    }
   }
 
   .contact-note {

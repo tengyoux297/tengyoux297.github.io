@@ -3,6 +3,8 @@ layout: default
 ---
 {% assign cv_link = site.cv_pdf_link | default: site.data.socials.cv_pdf | default: '/assets/pdf/cv.pdf' %}
 {% assign scholar_userid = site.data.socials.scholar_userid %}
+{% assign school_email = site.data.socials.email %}
+{% assign personal_gmail = 'tengyoux@gmail.com' %}
 <div class="post research-home">
   <article>
     <header class="research-hero">
@@ -29,7 +31,7 @@ layout: default
             {% else %}
               {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
             {% endif %}
-            {% capture sizes %}(min-width: {{ site.max_width }}) 320px, (min-width: 768px) 32vw, 85vw{% endcapture %}
+            {% capture sizes %}(min-width: {{ site.max_width }}) 288px, (min-width: 768px) 30vw, 82vw{% endcapture %}
             <div class="hero-portrait">
               {%
                 include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
@@ -76,7 +78,31 @@ layout: default
             <div><p class="section-kicker">Contact</p></div>
           </div>
           <div class="social">
-            <div class="contact-icons">{% social_links %}</div>
+            <div class="contact-icons">
+              {% if school_email %}
+                <a href="mailto:{{ school_email | encode_email }}" aria-label="School email" title="School email">
+                  <span class="school-email-mark" aria-hidden="true">
+                    <i class="fa-solid fa-envelope school-email-base"></i>
+                    <span class="school-email-badge">
+                      <i class="fa-solid fa-circle school-email-badge-bg"></i>
+                      <i class="fa-solid fa-graduation-cap school-email-badge-icon"></i>
+                    </span>
+                  </span>
+                </a>
+              {% endif %}
+              <a href="mailto:{{ personal_gmail | encode_email }}" aria-label="Personal Gmail" title="Personal Gmail">
+                <i class="fa-solid fa-envelope"></i>
+              </a>
+              {% if scholar_userid %}
+                <a
+                  href="https://scholar.google.com/citations?user={{ scholar_userid }}"
+                  aria-label="Google Scholar"
+                  title="Google Scholar"
+                >
+                  <i class="ai ai-google-scholar"></i>
+                </a>
+              {% endif %}
+            </div>
             <div class="contact-note">{{ site.contact_note }}</div>
           </div>
         </section>
