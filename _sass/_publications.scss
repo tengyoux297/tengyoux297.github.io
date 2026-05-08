@@ -212,6 +212,14 @@
   }
 }
 
+.bibsearch-form-input + .publications {
+  margin-top: 0;
+
+  h2.bibliography:first-of-type {
+    margin-top: 0.85rem;
+  }
+}
+
 .citation,
 .citation-number {
   color: var(--global-theme-color);
