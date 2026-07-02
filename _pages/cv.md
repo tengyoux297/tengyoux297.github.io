@@ -4,7 +4,7 @@ permalink: /cv/
 title: CV
 nav: false
 nav_order: 5
-cv_pdf: /assets/pdf/cv.pdf # you can also use external links here
+cv_pdf: /cv/out/cv.pdf # you can also use external links here
 cv_format: rendercv # options: rendercv, jsonresume
 description: Education, research experience, and publications. A PDF version is available for download.
 ---

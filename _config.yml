@@ -51,7 +51,7 @@ external_services:
 
 navbar_fixed: true
 footer_fixed: false
-cv_pdf_link: /assets/pdf/cv.pdf # navbar CV button target (opens PDF in a new tab)
+cv_pdf_link: /cv/out/cv.pdf # navbar CV button target (opens PDF in a new tab)
 search_enabled: true
 socials_in_search: true
 posts_in_search: false
